@@ -77,7 +77,7 @@ const Home = () => {
               avatar={user.avatar.url}
             />
           ))) : (
-            <Typography>No Users Yets</Typography>
+            <Typography>No Users Yet</Typography>
           )
         }
       </div>
