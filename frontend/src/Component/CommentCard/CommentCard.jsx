@@ -20,12 +20,10 @@ const CommentCard = ({
   const dispatch = useDispatch();
 
   const deleteCommentHandler = () => {
-    console.log("please delete this");
     dispatch(deleteCommentOnPost(postId, commentId));
-
-    if(isAccount){
+    if (isAccount) {
       dispatch(getMyPosts());
-    }else{
+    } else {
       dispatch(getFollowingPosts());
     }
   }
@@ -47,6 +45,4 @@ const CommentCard = ({
       ) : null}
   </div>
 };
-
-
 export default CommentCard

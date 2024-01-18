@@ -14,13 +14,11 @@ const Register = () => {
     const [avatar, setAvatar] = useState("");
 
     const { loading, error } = useSelector((state) => state.user);
-
     const dispatch = useDispatch();
     const alert = useAlert()
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
-
         const Reader = new FileReader();
         Reader.readAsDataURL(file);
 
@@ -30,16 +28,14 @@ const Register = () => {
             }
         };
     };
-
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(name, email, password);
         dispatch(RegisterUser(name, email, password, avatar))
     }
-    useEffect(()=>{
-        if(error){
+    useEffect(() => {
+        if (error) {
             alert.error(error);
-            dispatch({type: "clearErrors"})
+            dispatch({ type: "clearErrors" })
         }
     }, [dispatch, error, alert]);
     return (
@@ -83,5 +79,4 @@ const Register = () => {
         </div>
     )
 }
-
 export default Register

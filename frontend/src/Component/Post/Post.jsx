@@ -47,15 +47,12 @@ const Post = ({
         await dispatch(likePost(postId));
         if (isAccount) {
             dispatch(getMyPosts());
-            console.log('a')
         }
         if (isAccount === s) {
             dispatch(getUserPosts(ownerId));
-            console.log('b')
         }
         else {
             dispatch(getFollowingPosts());
-            console.log('c')
         }
     };
     const addCommentHandler = async (e) => {
@@ -72,7 +69,6 @@ const Post = ({
         dispatch(updatePost(captionValue, postId));
         dispatch(getMyPosts());
     }
-
     const deletePostHandler = async () => {
         await dispatch(deletePost(postId));
         dispatch(getMyPosts());
@@ -85,7 +81,6 @@ const Post = ({
             }
         });
     }, [likes, user._id]);
-
 
     return (
         <div className='post'>
@@ -187,7 +182,6 @@ const Post = ({
                     }
                 </div>
             </Dialog>
-
             <Dialog
                 open={captionToggle}
                 onClose={() => setCaptionToggle(!captionToggle)}
@@ -208,5 +202,4 @@ const Post = ({
         </div>
     )
 }
-
 export default Post;

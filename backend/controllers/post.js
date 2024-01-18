@@ -25,7 +25,7 @@ exports.createPost = async (req, res) => {
 
         res.status(201).json({
             success: true,
-            message:"Post created",
+            message: "Post created",
         });
     } catch (error) {
         res.status(500).json({
@@ -52,11 +52,9 @@ exports.deletePost = async (req, res) => {
         }
 
         await cloudinary.v2.uploader.destroy(post.image.public_id);
-
         await post.deleteOne();
 
         const user = await User.findById(req.user._id);
-
         const index = user.posts.indexOf(req.params.id);
         user.posts.splice(index, 1);
 
@@ -90,7 +88,6 @@ exports.likeAndUNlikePost = async (req, res) => {
             post.likes.splice(index, 1);
 
             await post.save();
-
             return res.status(200).json({
                 success: true,
                 message: "post Unliked"
@@ -232,7 +229,6 @@ exports.deleteComment = async (req, res) => {
             });
 
             await post.save();
-
             return res.status(200).json({
                 success: true,
                 message: "Selected Comment Deleted",

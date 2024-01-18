@@ -9,15 +9,11 @@ import { useDispatch } from "react-redux"
 import { Typography } from '@mui/material';
 import { useAlert } from 'react-alert';
 
-
 const Home = () => {
-
   const dispatch = useDispatch();
   const alert = useAlert();
-
   const { loading, posts, error } = useSelector((state) => state.postOfFollowing);
-  const {error:likeError, message} = useSelector((state) => state.like);
-
+  const { error: likeError, message } = useSelector((state) => state.like);
   const { users, loading: usersLoading } = useSelector((state) => state.allUsers);
 
   useEffect(() => {
@@ -43,7 +39,6 @@ const Home = () => {
       dispatch({ type: "clearMessage" });
     }
   }, [alert, error, message, likeError, dispatch]);
-
 
   return loading === true || usersLoading === true ? (
     <Loader />

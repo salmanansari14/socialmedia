@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export const loginUser = (email, password) => async (dispatch) => {
     try {
         dispatch({
@@ -227,11 +226,11 @@ export const forgotPassword = (email) => async (dispatch) => {
         const { data } = await axios.post("/api/v1/forgot/password", {
             email,
         },
-        {
-            headers:{
-                "Content-Type": "application/json",
-            },
-        });
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
         dispatch({
             type: "forgotPasswordSuccess",
             payload: data.message,
@@ -249,15 +248,14 @@ export const resetPassword = (token, password) => async (dispatch) => {
         dispatch({
             type: "resetPasswordRequest",
         });
-        console.log("kdddddddterer", token)
         const { data } = await axios.put(`/api/v1/password/reset/${token}`, {
             password,
         },
-        {
-            headers:{
-                "Content-Type": "application/json",
-            },
-        });
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
         dispatch({
             type: "resetPasswordSuccess",
             payload: data.message,
@@ -268,17 +266,15 @@ export const resetPassword = (token, password) => async (dispatch) => {
             type: "resetPasswordFailure",
             payload: error.response.data.message,
         });
-      
+
     }
 };
-
 
 export const getUserPosts = (id) => async (dispatch) => {
     try {
         dispatch({
             type: "userPostsRequest",
         });
-
         const { data } = await axios.get(`/api/v1/userposts/${id}`);
         dispatch({
             type: "userPostsSuccess",
@@ -292,18 +288,17 @@ export const getUserPosts = (id) => async (dispatch) => {
         });
     }
 };
+
 export const getUserProfile = (id) => async (dispatch) => {
     try {
         dispatch({
             type: "userProfileRequest",
         });
-
         const { data } = await axios.get(`/api/v1/user/${id}`);
         dispatch({
             type: "userProfileSuccess",
             payload: data.user,
         });
-        // console.log(data.user.followers.length)
     } catch (error) {
         dispatch({
             type: "userProfileFailure",
@@ -318,7 +313,6 @@ export const followAndUnfollowUser = (id) => async (dispatch) => {
         dispatch({
             type: "followUserRequest",
         });
-
         const { data } = await axios.get(`/api/v1/follow/${id}`);
         dispatch({
             type: "followUserSuccess",

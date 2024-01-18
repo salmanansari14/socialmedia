@@ -17,7 +17,6 @@ exports.register = async (req, res) => {
         const myCloud = await cloudinary.v2.uploader.upload(avatar, {
             folder: "avatars",
         });
-
         user = await User.create({
             name,
             email,
@@ -56,7 +55,6 @@ exports.login = async (req, res) => {
                 message: "user does not exist"
             })
         }
-
         const isMatch = await user.matchPassword(password);
 
         if (!isMatch) {
@@ -153,7 +151,6 @@ exports.followUser = async (req, res) => {
 exports.updatePassword = async (req, res) => {
     try {
         const user = await User.findById(req.user._id).select("+password");
-
         const { oldPassword, newPassword } = req.body;
 
         if (!oldPassword || !newPassword) {
@@ -182,7 +179,6 @@ exports.updatePassword = async (req, res) => {
 exports.updateProfile = async (req, res) => {
     try {
         const user = await User.findById(req.user._id);
-
         const { name, email, avatar } = req.body;
         if (name) {
             user.name = name;
@@ -223,20 +219,17 @@ exports.deleteMyProfile = async (req, res) => {
         const userId = user._id;
 
         await cloudinary.v2.uploader.destroy(user.avatar.public_id)
-
         await user.deleteOne();
 
         res.cookie("token", null, {
             expires: new Date(Date.now()),
             httpOnly: true,
         });
-
         for (let i = 0; i < posts.length; i++) {
             const post = await Post.findById(posts[i]);
             await cloudinary.v2.uploader.destroy(post.image.public_id);
             await post.deleteOne();
         }
-
         for (let i = 0; i < followers.length; i++) {
 
             const follower = await User.findById(followers[i]);
@@ -244,7 +237,6 @@ exports.deleteMyProfile = async (req, res) => {
             follower.following.splice(index, 1);
             await follower.save();
         }
-
         for (let i = 0; i < following.length; i++) {
 
             const follows = await User.findById(following[i]);
@@ -252,7 +244,6 @@ exports.deleteMyProfile = async (req, res) => {
             follows.followers.splice(index, 1);
             await follows.save();
         }
-
         const allPosts = await Post.find();
         for (let i = 0; i < allPosts.length; i++) {
             const post = await post.findById(posts[i]._id);
@@ -264,7 +255,6 @@ exports.deleteMyProfile = async (req, res) => {
             }
             await post.save();
         }
-
         for (let i = 0; i < allPosts.length; i++) {
             const post = await post.findById(posts[i]._id);
             for (let j = 0; j < post.likes.length; j++) {
@@ -307,7 +297,6 @@ exports.myProfile = async (req, res) => {
 exports.getUserProfile = async (req, res) => {
     try {
         const user = await User.findById(req.params.id).populate("posts followers following");
-        console.log(user.name)
         if (!user) {
             res.status(404).json({
                 success: false,
@@ -354,9 +343,7 @@ exports.forgotPassword = async (req, res) => {
         const resetPasswordToken = user.getResetPasswordToken();
 
         await user.save();
-
         const resetUrl = `${req.protocol}://${req.get("host")}/password/reset/${resetPasswordToken}`;
-
         const message = `Reset your passowrd by clicking on the link below: \n ${resetUrl}`;
 
         try {

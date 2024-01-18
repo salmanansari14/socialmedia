@@ -1,7 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 
 const initialState = {}
-
 export const likeReducer = createReducer(initialState, {
     likeRequest: (state) => {
         state.loading = true;
@@ -134,7 +133,7 @@ export const likeReducer = createReducer(initialState, {
         state.loading = false;
         state.error = action.payload;
     },
-    
+
     followUserRequest: (state) => {
         state.loading = true;
     },
@@ -146,6 +145,7 @@ export const likeReducer = createReducer(initialState, {
         state.loading = false;
         state.error = action.payload;
     },
+
     clearErrors: (state) => {
         state.error = null;
     },

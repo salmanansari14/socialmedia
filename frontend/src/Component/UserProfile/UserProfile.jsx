@@ -38,17 +38,14 @@ const UserProfile = () => {
     useEffect(() => {
         if (me._id === params.id) {
             setMyProfile(true);
-            console.log("1")
         }
         if (user) {
             user.followers.forEach((item) => {
                 if (item._id === me._id) {
                     setFollowing(true);
-                    console.log("2")
                 }
                 else {
                     setFollowing(false);
-                    console.log("3")
                 }
             });
         }
