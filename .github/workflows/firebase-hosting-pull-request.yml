@@ -13,5 +13,5 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SOCIAL_MEDIA_AAP_6937C }}'
-          projectId: social-media-aap-6937c
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SOCIAL_A7FE0 }}'
+          projectId: social-a7fe0

@@ -45,7 +45,7 @@ const Account = () => {
       dispatch({type: "clearErrors"})
     }
     if (message) {
-      alert.error(message);
+      alert.success(message);
       dispatch({ type: "clearMessage" });
     }
   }, [alert, error, message, likeError, dispatch]);

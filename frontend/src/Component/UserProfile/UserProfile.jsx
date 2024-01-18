@@ -14,7 +14,6 @@ const UserProfile = () => {
     const alert = useAlert();
     const params = useParams();
 
-
     const { user, loading: userLoading, error: userError } = useSelector((state) => state.userProfile);
     const { user: me } = useSelector((state) => state.user);
 
@@ -29,28 +28,27 @@ const UserProfile = () => {
     const followingHandler = () => {
         setFollowing(!following);
         dispatch(followAndUnfollowUser(user._id));
-        // console.log(user.following._id)
+        dispatch(getUserProfile(params.id));
     }
-
-
     useEffect(() => {
         dispatch(getUserPosts(params.id));
         dispatch(getUserProfile(params.id));
-
-        // console.log(me._id)
-    }, [dispatch, params.id, me._id]);
+    }, [dispatch, params.id]);
 
     useEffect(() => {
         if (me._id === params.id) {
             setMyProfile(true);
+            console.log("1")
         }
         if (user) {
-            user.followers.forEach(item => {
+            user.followers.forEach((item) => {
                 if (item._id === me._id) {
                     setFollowing(true);
+                    console.log("2")
                 }
                 else {
                     setFollowing(false);
+                    console.log("3")
                 }
             });
         }
@@ -91,6 +89,8 @@ const UserProfile = () => {
                         ownerName={post.owner.name}
                         ownerId={post.owner._id}
                         ownerImage={post.owner.avatar.url}
+                        isAccount = {"home"}
+                        isDelete = {true}
                     />
                 )
                 )) : <Typography variant='h3'>User has not made any post</Typography>
@@ -120,8 +120,8 @@ const UserProfile = () => {
                     {
 
                         myProfile ? null :
-                            <Button variant="contained" onClick={followingHandler} disabled={followLoading} style={{ background: following || me._id === user.following.id ? "red" : "" }}>
-                                {following || me._id === user.following.id ? "Unfollow" : "Follow"}
+                            <Button variant="contained" onClick={followingHandler} disabled={followLoading} style={{ background: following ? "red" : "" }}>
+                                {following ? "Unfollow" : "Follow"}
                             </Button>
                     }
                 </>

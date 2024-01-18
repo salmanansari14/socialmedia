@@ -3,7 +3,7 @@ import './Home.css'
 import User from '../User/User';
 import Post from '../Post/Post';
 import Loader from '../Loader/Loader';
-import { getAllUsers, getFollowingPosts } from '../../Actions/User';
+import { getAllUsers, getFollowingPosts, getMyPosts } from '../../Actions/User';
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { Typography } from '@mui/material';
@@ -23,6 +23,10 @@ const Home = () => {
   useEffect(() => {
     dispatch(getFollowingPosts());
     dispatch(getAllUsers());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getMyPosts());
   }, [dispatch]);
 
   useEffect(() => {
@@ -58,8 +62,6 @@ const Home = () => {
               ownerImage={post.owner.avatar.url}
               ownerName={post.owner.name}
               ownerId={post.owner._id}
-              isAccount={true}
-              isDelete={true}
             />
           ))
         ) : (

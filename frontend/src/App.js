@@ -31,9 +31,9 @@ function App() {
 
       <Routes>
         <Route
-          path="/"
-          element={isAuthenticated ? <Home /> : <Login />}
+          path="/" element={isAuthenticated ? <Home /> : <Login />}
         />
+        
         <Route
           path="/account"
           element={isAuthenticated ? <Account /> : <Login />}

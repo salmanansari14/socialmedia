@@ -60,7 +60,6 @@ exports.login = async (req, res) => {
         const isMatch = await user.matchPassword(password);
 
         if (!isMatch) {
-            console.log("ssssssssssssss")
             return res.status(400).json({
                 success: false,
                 message: "incorrect password"
@@ -322,7 +321,7 @@ exports.getUserProfile = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: error.response.data.message,
+            message: error.message,
         })
     }
 };

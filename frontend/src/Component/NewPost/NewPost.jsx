@@ -4,6 +4,7 @@ import { Button, Typography } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux';
 import { createNewPost } from '../../Actions/Post';
 import { useAlert } from 'react-alert';
+import { getMyPosts } from '../../Actions/User';
 
 const NewPost = () => {
     const [image, setImage] = useState(null);
@@ -28,6 +29,9 @@ const NewPost = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         await dispatch(createNewPost(caption, image));
+        dispatch(getMyPosts)
+        setImage(null)
+        setCaption(' ')
     }
 
     useEffect(() => {

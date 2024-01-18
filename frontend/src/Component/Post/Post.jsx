@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { Avatar, Typography, Button, Dialog } from '@mui/material';
 import { likePost, addCommentOnPost, updatePost, deletePost } from '../../Actions/Post';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFollowingPosts, getMyPosts, loadUser } from '../../Actions/User';
+import { getFollowingPosts, getMyPosts, getUserPosts, getUserProfile, loadUser } from '../../Actions/User';
 import {
     MoreVert,
     Favorite,
@@ -24,9 +24,10 @@ const Post = ({
     ownerImage,
     ownerName,
     ownerId,
-    isDelete = false,
-    isAccount = false,
+    isDelete,
+    isAccount,
 }) => {
+    let s = "home"
 
     const [liked, setLiked] = useState(false);
     const [likesUser, setLikesUser] = useState(false);
@@ -46,31 +47,36 @@ const Post = ({
         await dispatch(likePost(postId));
         if (isAccount) {
             dispatch(getMyPosts());
+            console.log('a')
+        }
+        if (isAccount === s) {
+            dispatch(getUserPosts(ownerId));
+            console.log('b')
         }
         else {
             dispatch(getFollowingPosts());
+            console.log('c')
         }
     };
     const addCommentHandler = async (e) => {
-        console.log("add comment");
         e.preventDefault();
         await dispatch(addCommentOnPost(postId, commentValue));
         if (isAccount) {
             dispatch(getMyPosts());
-          } else {
+        } else {
             dispatch(getFollowingPosts());
-          }
+        }
     }
-    const updateCaptionHandler= (e)=>{
+    const updateCaptionHandler = (e) => {
         e.preventDefault();
         dispatch(updatePost(captionValue, postId));
         dispatch(getMyPosts());
     }
 
-    const deletePostHandler = async () =>{
-           await dispatch(deletePost(postId));
-           dispatch(getMyPosts());
-           dispatch(loadUser());
+    const deletePostHandler = async () => {
+        await dispatch(deletePost(postId));
+        dispatch(getMyPosts());
+        dispatch(loadUser());
     }
     useEffect(() => {
         likes.forEach((item) => {
@@ -79,13 +85,13 @@ const Post = ({
             }
         });
     }, [likes, user._id]);
-    
+
 
     return (
         <div className='post'>
             <div className="postHeader">
                 {isAccount ? (
-                    <Button onClick={()=> setCaptionToggle(!captionToggle)}>
+                    <Button onClick={() => setCaptionToggle(!captionToggle)}>
                         <MoreVert />
                     </Button>) : null}
             </div>
