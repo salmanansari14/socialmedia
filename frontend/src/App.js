@@ -6,10 +6,10 @@ import Login from "./Component/Login/Login";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { loadUser } from './Actions/User';
-import Account from './Component/Account/Account';
-import Search from './Component/Search/Search';
-import NewPost from './Component/NewPost/NewPost';
 import Register from './Component/Register/Register';
+import Account from './Component/Account/Account';
+import NewPost from './Component/NewPost/NewPost';
+import Search from './Component/Search/Search';
 import UpdateProfile from './Component/UpdateProfile/UpdateProfile';
 import UpdatePassword from './Component/UpdatePassword/UpdatePassword';
 import ForgotPassword from './Component/FogotPassword/ForgotPassword';
@@ -28,7 +28,7 @@ function App() {
   return (
     <Router>
       {isAuthenticated && <Header />}
-
+      {/* "proxy":"http://localhost:4000" */}
       <Routes>
         <Route
           path="/" element={isAuthenticated ? <Home /> : <Login />}

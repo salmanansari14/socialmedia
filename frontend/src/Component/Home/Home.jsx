@@ -60,7 +60,7 @@ const Home = () => {
             />
           ))
         ) : (
-          <Typography variant='h6'>No post yet</Typography>
+          <Typography variant='h6'>No post yetttttt</Typography>
         )
         }
       </div>

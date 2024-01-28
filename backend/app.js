@@ -2,8 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const cookieParser = require("cookie-parser");
-app.use(cors());
 const path = require("path");
+app.use(cors());
 
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config({ path: "backend/config/config.env" });
@@ -14,6 +14,7 @@ app.use(cookieParser());
 
 const post = require("./routes/post");
 const user = require("./routes/user");
+
 
 app.use("/api/v1", post);
 app.use("/api/v1", user);
