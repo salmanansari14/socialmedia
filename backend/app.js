@@ -18,6 +18,7 @@ const user = require("./routes/user");
 
 app.use("/api/v1", post);
 app.use("/api/v1", user);
+app.get("jkghsghgh")
 
 app.use(express.static(path.join(__dirname, "../frotend/build")));
 app.get("*", (req, res) => {
