@@ -19,8 +19,8 @@ app.post("/loginn", (req, res)=>{
     res.send("hello salman")
 })
 
-app.use("/api/v1", post);
-app.use("/api/v1", user);
+app.use("https://socialmediaa-4h89.onrender.com/api/v1", post);
+app.use("https://socialmediaa-4h89.onrender.com/api/v1", user);
 
 // app.use(express.static(path.join(__dirname, "../frotend/build")));
 // app.get("*", (req, res) => {
