@@ -6,7 +6,7 @@ export const loginUser = (email, password) => async (dispatch) => {
             type: "LoginRequest",
         });
         const { data } = await axios.post(
-            "/api/v1/login",
+            "api/v1/login",
             { email, password },
             {
                 headers: {
@@ -126,14 +126,16 @@ export const RegisterUser = (name, email, password, avatar) => async (dispatch) 
         dispatch({
             type: "RegisterRequest",
         });
+        console.log("aaaaaa")
         const { data } = await axios.post(
             "/api/v1/register",
-            { name, email, password, avatar },
+            [ name, email, password, avatar ],
             {
                 headers: {
                     "Content-Type": "application/json"
                 },
             });
+            console.log("bbbb")
         dispatch({
             type: "RegisterSuccess",
             payload: data.user,
