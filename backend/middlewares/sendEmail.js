@@ -12,7 +12,7 @@ exports.sendEmail = async (options) => {
       });
 
     const mailOptions = {
-        from: process.env.SMPT_MAIL,
+        from: "mymailforabhi@gmail.com",
         to: options.email,
         subject: options.subject,
         text: options.message,
