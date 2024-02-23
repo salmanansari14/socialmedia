@@ -9,7 +9,7 @@ exports.isAuthenticated = async (req, res, next) => {
                 message: "please login first"
             });
         }
-        const decoded = await jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = await jwt.verify(token, "merakhudkacustomsecret");
         req.user = await User.findById(decoded._id);
         next();
     } catch (error) {
