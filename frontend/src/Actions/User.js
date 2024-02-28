@@ -1,12 +1,12 @@
 import axios from "axios";
-
+const a = "https://socialmedd.onrender.com/"
 export const loginUser = (email, password) => async (dispatch) => {
     try {
         dispatch({
             type: "LoginRequest",
         });
         const { data } = await axios.post(
-            "https://socialmedd.onrender.com/api/v1/login",
+            `${a}api/v1/login`,
             { email, password },
             {
                 headers: {
@@ -31,7 +31,7 @@ export const LogoutUser = () => async (dispatch) => {
         dispatch({
             type: "LogoutUserRequest",
         });
-        const { data } = await axios.get('https://socialmedd.onrender.com/api/v1/logout')
+        const { data } = await axios.get(`${a}api/v1/logout`)
         dispatch({
             type: "LogoutUserSuccess",
             payload: data.user,
@@ -49,7 +49,7 @@ export const loadUser = () => async (dispatch) => {
         dispatch({
             type: "LoadUserRequest",
         });
-        const { data } = await axios.get("https://socialmedd.onrender.com/api/v1/me");
+        const { data } = await axios.get(`${a}api/v1/me`);
         dispatch({
             type: "LoadUserSuccess",
             payload: data.user,
@@ -69,7 +69,7 @@ export const getFollowingPosts = () => async (dispatch) => {
             type: "postOfFollowingRequest",
         });
 
-        const { data } = await axios.get("https://socialmedd.onrender.com/api/v1/posts");
+        const { data } = await axios.get(`${a}api/v1/posts`);
         dispatch({
             type: "postOfFollowingSuccess",
             payload: data.posts,
@@ -88,7 +88,7 @@ export const getMyPosts = () => async (dispatch) => {
             type: "myPostsRequest",
         });
 
-        const { data } = await axios.get("https://socialmedd.onrender.com/api/v1/my/posts");
+        const { data } = await axios.get(`${a}api/v1/my/posts`);
         dispatch({
             type: "myPostsSuccess",
             payload: data.posts,
@@ -107,7 +107,7 @@ export const getAllUsers = (name = "") => async (dispatch) => {
             type: "allUsersRequest",
         });
 
-        const { data } = await axios.get(`https://socialmedd.onrender.com/api/v1/users?name=${name}`);
+        const { data } = await axios.get(`${a}api/v1/users?name=${name}`);
         dispatch({
             type: "allUsersSuccess",
             payload: data.users,
@@ -128,7 +128,7 @@ export const RegisterUser = (name, email, password, avatar) => async (dispatch) 
         });
         console.log("aaaaaa")
         const { data } = await axios.post(
-            "https://socialmedd.onrender.com/api/v1/register",
+            `${a}api/v1/register`,
             [ name, email, password, avatar ],
             {
                 headers: {
@@ -155,7 +155,7 @@ export const updateProfile = (name, email, avatar) => async (dispatch) => {
             type: "updateProfileRequest",
         });
         const { data } = await axios.put(
-            "https://socialmedd.onrender.com/api/v1/update/profile",
+            `${a}api/v1/update/profile`,
             { name, email, avatar },
             {
                 headers: {
@@ -181,7 +181,7 @@ export const updatePassword = (oldPassword, newPassword) => async (dispatch) => 
             type: "updatePasswordRequest",
         });
         const { data } = await axios.put(
-            "https://socialmedd.onrender.com/api/v1/update/password",
+            `${a}api/v1/update/password`,
             { oldPassword, newPassword },
             {
                 headers: {
@@ -206,7 +206,7 @@ export const deleteMyProfile = () => async (dispatch) => {
         dispatch({
             type: "deleteProfileRequest",
         });
-        const { data } = await axios.delete("https://socialmedd.onrender.com/api/v1/delete/me");
+        const { data } = await axios.delete(`${a}api/v1/delete/me`);
         dispatch({
             type: "deleteProfileSuccess",
             payload: data.message,
@@ -225,7 +225,7 @@ export const forgotPassword = (email) => async (dispatch) => {
         dispatch({
             type: "forgotPasswordRequest",
         });
-        const { data } = await axios.post("https://socialmedd.onrender.com/api/v1/forgot/password", {
+        const { data } = await axios.post(`${a}api/v1/forgot/password`, {
             email,
         },
             {
@@ -250,7 +250,7 @@ export const resetPassword = (token, password) => async (dispatch) => {
         dispatch({
             type: "resetPasswordRequest",
         });
-        const { data } = await axios.put(`https://socialmedd.onrender.com/api/v1/password/reset/${token}`, {
+        const { data } = await axios.put(`${a}api/v1/password/reset/${token}`, {
             password,
         },
             {
@@ -277,7 +277,7 @@ export const getUserPosts = (id) => async (dispatch) => {
         dispatch({
             type: "userPostsRequest",
         });
-        const { data } = await axios.get(`https://socialmedd.onrender.com/api/v1/userposts/${id}`);
+        const { data } = await axios.get(`${a}api/v1/userposts/${id}`);
         dispatch({
             type: "userPostsSuccess",
             payload: data.posts,
@@ -296,7 +296,7 @@ export const getUserProfile = (id) => async (dispatch) => {
         dispatch({
             type: "userProfileRequest",
         });
-        const { data } = await axios.get(`https://socialmedd.onrender.com/api/v1/user/${id}`);
+        const { data } = await axios.get(`${a}api/v1/user/${id}`);
         dispatch({
             type: "userProfileSuccess",
             payload: data.user,
@@ -315,7 +315,7 @@ export const followAndUnfollowUser = (id) => async (dispatch) => {
         dispatch({
             type: "followUserRequest",
         });
-        const { data } = await axios.get(`https://socialmedd.onrender.com/api/v1/follow/${id}`);
+        const { data } = await axios.get(`${a}api/v1/follow/${id}`);
         dispatch({
             type: "followUserSuccess",
             payload: data.message,
