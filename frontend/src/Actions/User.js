@@ -6,7 +6,7 @@ export const loginUser = (email, password) => async (dispatch) => {
             type: "LoginRequest",
         });
         const { data } = await axios.post(
-            `${a}api/v1/login`,
+            `https://socialmedd.onrender.com/api/v1/login`,
             { email, password },
             {
                 headers: {

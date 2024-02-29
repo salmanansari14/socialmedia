@@ -4,7 +4,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const path = require("path");
 app.use(cors({
-    origin: "http://localhost:3000"
+    origin: ["http://localhost:3000", "http://127.0.0.1:3000"]
 }));
 
 if (process.env.NODE_ENV !== "production") {
