@@ -1,4 +1,5 @@
 {
+    "buildCommand": "next build",
     "version": "2",
     "build": [
         {
@@ -11,6 +12,5 @@
             "src": "/(.*)",
             "dest": "/"
         }
-    ],
-    "buildCommand": "next build"
+    ]
 }
