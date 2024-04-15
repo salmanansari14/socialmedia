@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Loader from '../Loader/Loader'
 import { followAndUnfollowUser, getUserPosts, getUserProfile } from '../../Actions/User';
 import { Avatar, Typography, Button, Dialog } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useAlert } from 'react-alert';
+import Loader from '../Loader/Loader'
 import Post from '../Post/Post';
 import User from '../User/User';
 
@@ -86,8 +86,8 @@ const UserProfile = () => {
                         ownerName={post.owner.name}
                         ownerId={post.owner._id}
                         ownerImage={post.owner.avatar.url}
-                        isAccount = {"home"}
-                        isDelete = {true}
+                        isAccount={"home"}
+                        isDelete={true}
                     />
                 )
                 )) : <Typography variant='h3'>User has not made any post</Typography>
@@ -114,13 +114,10 @@ const UserProfile = () => {
                         <Typography>Post</Typography>
                         <Typography>{user.posts.length}</Typography>
                     </div>
-                    {
-
-                        myProfile ? null :
-                            <Button variant="contained" onClick={followingHandler} disabled={followLoading} style={{ background: following ? "red" : "" }}>
-                                {following ? "Unfollow" : "Follow"}
-                            </Button>
-                    }
+                    {myProfile ? null :
+                        <Button variant="contained" onClick={followingHandler} disabled={followLoading} style={{ background: following ? "red" : "" }}>
+                            {following ? "Unfollow" : "Follow"}
+                        </Button>}
                 </>
             )}
         </div>
