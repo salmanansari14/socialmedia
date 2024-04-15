@@ -47,5 +47,6 @@
     ]
   },
    
-  "proxy":"https://socialmedd.onrender.com"
+  
+  "proxy":"http://localhost:4000"
 }

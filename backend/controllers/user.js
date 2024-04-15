@@ -9,11 +9,12 @@ exports.register = async (req, res) => {
     try {
         const { name, email, password, avatar } = req.body;
         let user = await User.findOne({ email });
-        if (user)
+        console.log(avatar)
+        if (user){
             return res
                 .status(400)
                 .json({ success: false, message: "user already exist" });
-
+        }
         const myCloud = await cloudinary.v2.uploader.upload(avatar, {
             folder: "avatars",
         });

@@ -24,7 +24,7 @@ function App() {
   }, [dispatch]);
 
   const { isAuthenticated } = useSelector((state) => state.user);
-
+  // "proxy":"https://socialmedd.onrender.com"
   return (
     <Router>
       {isAuthenticated && <Header />}

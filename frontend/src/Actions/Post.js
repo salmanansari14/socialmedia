@@ -1,5 +1,6 @@
 import axios from "axios"
-const a ="https://socialmedd.onrender.com/"
+// const a ="https://socialmedd.onrender.com/"
+const a ="/"
 export const likePost = (id) => async (dispatch) => {
     try {
         dispatch({
