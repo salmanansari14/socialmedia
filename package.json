@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": " nodemon backend/server.js",
-    "builCommand": "next build",
+    "start": " backend/server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
