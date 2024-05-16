@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "vercel-build": "echo hello"
+    "buildCommand": "next build"
   },
   "author": "",
   "license": "ISC",
