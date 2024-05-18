@@ -2,7 +2,7 @@ const app = require("./app");
 // const cors = require("cors");
 const { connectDatabase } = require("./config/database");
 const cloudinary = require("cloudinary")
-const PORT = 4000
+const PORT = process.env.PORT || 4000
 
 connectDatabase();
 
