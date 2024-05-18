@@ -2,13 +2,12 @@
   "name": "mern-social",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "buildCommand": "next build"
+    "eject": "react-scripts eject"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +22,7 @@
     "mongoose": "^7.4.1",
     "nodemailer": "^6.9.4",
     "nodemon": "^3.0.1",
-    "npm": "^10.3.0"
+    "npm": "^10.3.0",
+    "vercel": "^34.2.0"
   }
 }
