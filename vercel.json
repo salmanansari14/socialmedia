@@ -1,12 +1,8 @@
     {        
         "version": 2,
-    "build": 
-        {
-            
-        },
         "routes": [
             {
-                "src": "/.*",
+                "src": "/(.*)",
                 "dest": "backend/shherver.js"
             }
         ]

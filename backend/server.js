@@ -2,7 +2,7 @@ const app = require("./app");
 // const cors = require("cors");
 const { connectDatabase } = require("./config/database");
 const cloudinary = require("cloudinary")
-const PORT = process.env.PORT || 4000
+const port = process.env.PORT || 4000
 
 connectDatabase();
 
@@ -16,6 +16,6 @@ cloudinary.config({
     api_key: "644328533923261",
     api_secret: "_nFmzD4RIeUWzl-mjHilRbn7jzw",
 })
-app.listen(PORT, () => {
-    console.log(`server is running on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`server is running on port ${port}`);
 });
