@@ -1,9 +1,4 @@
     {        
-        "version": 2,
-        "rewrites": [
-            {
-                "source": "api/v1/(.*)",
-                "destination": "backend/shherver.js"
-            }
-        ]
+        "version": 2
+        
     }
