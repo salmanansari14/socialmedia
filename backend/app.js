@@ -21,7 +21,7 @@ const user = require("./routes/user");
 
 app.use("/api/v1", post);
 app.use("/api/v1", user);
-app.get("*", (req, res)=>{
+app.get("/", (req, res)=>{
     res.send('lfghk')
 });
 
@@ -31,12 +31,9 @@ app.get("*", (req, res)=>{
 // });
 module.exports = app
 
-
 // "version": 2,
 //     "build": 
 //         {
-            
-            
 //         },
 //     "routes": [
 //         {
