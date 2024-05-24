@@ -21,7 +21,7 @@ const user = require("./routes/user");
 
 app.use("/api/v1", post);
 app.use("/api/v1", user);
-app.get("/api/v1", (req, res)=>{
+app.get("/", (req, res)=>{
     res.send('lfghk')
 });
 
