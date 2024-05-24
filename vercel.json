@@ -2,8 +2,8 @@
         "version": 2,
         "rewrites": [
             {
-                "src": "/(.*)",
-                "dest": "backend/shherver.js"
+                "source": "/(.*)",
+                "destination": "backend/shherver.js"
             }
         ]
     }
