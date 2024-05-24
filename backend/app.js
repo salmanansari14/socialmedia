@@ -27,3 +27,17 @@ app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
 });
 module.exports = app
+
+
+// "version": 2,
+//     "build": 
+//         {
+            
+            
+//         },
+//     "routes": [
+//         {
+//             "src": "/.*",
+//             "dest": "backend/server.js"
+//         }
+//     ],
