@@ -25,10 +25,10 @@ function App() {
 
   const { isAuthenticated } = useSelector((state) => state.user);
   // "proxy":"https://socialmedd.onrender.com"
+  {/* "proxy":"http://localhost:4000" */}
   return (
     <Router>
       {isAuthenticated && <Header />}
-      {/* "proxy":"http://localhost:4000" */}
       <Routes>
         <Route
           path="/" element={isAuthenticated ? <Home /> : <Login />}
