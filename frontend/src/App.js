@@ -38,7 +38,8 @@ function App() {
           path="/account"
           element={isAuthenticated ? <Account /> : <Login />}
         />
-
+{/* "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2", */}
         <Route
           path="/register"
           element={isAuthenticated ? <Account /> : <Register />}
