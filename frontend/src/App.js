@@ -24,8 +24,6 @@ function App() {
   }, [dispatch]);
 
   const { isAuthenticated } = useSelector((state) => state.user);
-  // "proxy":"https://socialmedd.onrender.com"
-  {/* "proxy":"http://localhost:4000" */}
   return (
     <Router>
       {isAuthenticated && <Header />}
@@ -40,14 +38,8 @@ function App() {
         />
 {/* "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2", */}
-
-{/* {                
-        "version": 2,
-            "rewrites": [
-              { "source": "/backend/app", "destination": "/backend/app" }
-            ]
-          
-    } */}
+    {/* "@mui/icons-material": "^5.14.3", */}
+    {/* "@mui/material": "^5.14.3", */}
         <Route
           path="/register"
           element={isAuthenticated ? <Account /> : <Register />}
@@ -89,6 +81,54 @@ function App() {
     </Router>
   );
 }
-// "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
-// "start": "nodemon backend/server.js",
 export default App;
+
+
+// {
+//   "name": "frontend",
+//   "version": "0.1.0",
+//   "private": true,
+//   "dependencies": {
+//     "@emotion/react": "^11.11.1",
+//     "@emotion/styled": "^11.11.0",
+    
+//     "@reduxjs/toolkit": "^1.9.5",
+//     "@testing-library/jest-dom": "^5.17.0",
+//     "@testing-library/react": "^13.4.0",
+//     "@testing-library/user-event": "^13.5.0",
+//     "axios": "^1.4.0",
+//     "cloudinary": "^1.41.0",
+//     "react": "^16.8.1",
+//     "react-dom": "^18.2.0",
+//     "react-redux": "^8.1.2",
+//     "react-router-dom": "^6.14.2",
+//     "react-scripts": "5.0.1",
+//     "vercel": "^34.2.2",
+//     "web-vitals": "^2.1.4"
+//   },
+//   "scripts": {
+//     "start": "react-scripts start",
+//     "build": "react-scripts build",
+//     "test": "react-scripts test",
+//     "eject": "react-scripts eject"
+//   },
+//   "eslintConfig": {
+//     "extends": [
+//       "react-app",
+//       "react-app/jest"
+//     ]
+//   },
+//   "browserslist": {
+//     "production": [
+//       ">0.2%",
+//       "not dead",
+//       "not op_mini all"
+//     ],
+//     "development": [
+//       "last 1 chrome version",
+//       "last 1 firefox version",
+//       "last 1 safari version"
+//     ]
+//   }
+// }
+

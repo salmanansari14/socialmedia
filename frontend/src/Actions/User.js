@@ -8,7 +8,7 @@ export const loginUser = (email, password) => async (dispatch) => {
             type: "LoginRequest",
         });
         const { data } = await axios.post(
-            `/api/v1/login`,
+            `${a}api/v1/login`,
             { email, password },
             {
                 headers: {
@@ -33,7 +33,7 @@ export const LogoutUser = () => async (dispatch) => {
         dispatch({
             type: "LogoutUserRequest",
         });
-        const { data } = await axios.get(`api/v1/logout`)
+        const { data } = await axios.get(`${a}api/v1/logout`)
         dispatch({
             type: "LogoutUserSuccess",
             payload: data.user,
@@ -129,7 +129,7 @@ export const RegisterUser = (name, email, password, avatar) => async (dispatch) 
             type: "RegisterRequest",
         });
         const { data } = await axios.post(
-            `/api/v1/register`,
+            `${a}api/v1/register`,
             { name, email, password, avatar },
             {
                 headers: {
