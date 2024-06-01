@@ -40,6 +40,14 @@ function App() {
         />
 {/* "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2", */}
+
+{/* {                
+        "version": 2,
+            "rewrites": [
+              { "source": "/backend/app", "destination": "/backend/app" }
+            ]
+          
+    } */}
         <Route
           path="/register"
           element={isAuthenticated ? <Account /> : <Register />}
