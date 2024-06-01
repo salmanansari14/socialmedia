@@ -1,6 +1,7 @@
 import axios from "axios";
 // const a = "https://socialmedd.onrender.com/"
-const a = ""
+const a = "https://socialmedia-qqif.vercel.app/"
+// const a = ""
 export const loginUser = (email, password) => async (dispatch) => {
     try {
         dispatch({
