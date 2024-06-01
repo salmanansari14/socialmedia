@@ -1,7 +1,7 @@
     {                
         "version": 2,
             "rewrites": [
-              { "source": "/", "destination": "/backend/app" }
+              { "source": "/backend/app", "destination": "/backend/app" }
             ]
           
     }
