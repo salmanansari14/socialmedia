@@ -11,5 +11,11 @@
               "src": "/(.*)",
               "dest": "backend/app.js"
           }
-      ]
+      ],
+        "backend/route/post/*.js": {
+            "maxDuration": 25
+        },
+        "backend/route/user/*.js": {
+            "maxDuration": 25
+        }
   }
